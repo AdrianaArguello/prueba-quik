@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "prueba-quik"
+  },
+  "targets": {
+    "prueba-quik": {
+      "hosting": {
+        "prueba-quik": [
+          "prueba-quik"
+        ]
+      }
+    }
+  }
+}

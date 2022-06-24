@@ -1,0 +1,19 @@
+::ng-deep .snackbar__info {
+  background: #45abcd;
+}
+
+::ng-deep .snackbar__error {
+  background: #9e170e;
+}
+
+::ng-deep .snackbar__success {
+  background: #3748ac;
+}
+
+::ng-deep .snackbar__warning{
+  background: #ff9800;
+}
+
+::ng-deep .mat-simple-snackbar-action {
+  color: white !important;
+}

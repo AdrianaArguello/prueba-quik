@@ -1,0 +1,57 @@
+<h1 mat-dialog-title>{{data.title}}</h1>
+<div mat-dialog-content>
+  <form [formGroup]="personForm" (ngSubmit)="submit(personForm.value)">
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Nombre</mat-label>
+        <input type="text" matInput formControlName="name" pattern="[a-zñA-ZÑ]+">
+        <mat-error *ngIf="personForm.controls['name'].hasError('required')">
+          Este campo es requerido.
+        </mat-error>
+        <mat-error *ngIf="personForm.controls['name'].hasError('pattern') && !personForm.controls['name'].hasError('required')">
+          No se aceptan <strong>carácteres númericos y especiales.</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Apellido</mat-label>
+        <input type="text" matInput formControlName="lastname" pattern="[a-zñA-ZÑ]+">
+        <mat-error *ngIf="personForm.controls['lastname'].hasError('required')">
+          Este campo es requerido.
+        </mat-error>
+        <mat-error *ngIf="personForm.controls['lastname'].hasError('pattern') && !personForm.controls['lastname'].hasError('required')">
+          No se aceptan <strong>carácteres númericos y especiales.</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Genero</mat-label>
+        <mat-select formControlName="gender">
+          <mat-option *ngFor="let gender of gender" [value]="gender">{{gender}}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="personForm.controls['gender'].hasError('required')">
+          Este campo es requerido.
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Correo</mat-label>
+        <input type="text" matInput formControlName="email">
+        <mat-error *ngIf="personForm.controls['email'].hasError('required')">
+          Este campo es requerido.
+        </mat-error>
+        <mat-error *ngIf="personForm.controls['email'].hasError('pattern') && !personForm.controls['email'].hasError('required')">
+          Ingrese <strong>un correo valido.</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Dirección</mat-label>
+        <input type="text" matInput formControlName="address">
+        <mat-error *ngIf="personForm.controls['address'].hasError('required')">
+          Este campo es requerido.
+        </mat-error>
+        <mat-error *ngIf="personForm.controls['address'].hasError('pattern') && !personForm.controls['address'].hasError('required')">
+          Ingrese <strong>un correo valido.</strong>
+        </mat-error>
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit" [disabled]="personForm.invalid">{{data.button}}</button>
+  </form>
+</div>
+<app-snackbar></app-snackbar>
+<app-spinner [loading]="loading"></app-spinner>
