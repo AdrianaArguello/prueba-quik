@@ -12,7 +12,7 @@ import { SnackbarComponent } from 'src/app/shared/snackbar/snackbar.component';
 })
 export class PersonFormComponent implements OnInit {
   personForm: FormGroup;
-  gender: Array<String> = ['Masculido', 'Femenino', 'Otro'];
+  gender: Array<String> = ['Masculino', 'Femenino', 'Otro'];
   loading: boolean = false;
   id: string = '';
 
